@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'belt/css/bootstrap.css' %}">
+    <title>New Trip</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group narrow-form">
+            <form action="/add_event" method='POST'>
+                {% csrf_token %} 
+                <div class="align-right">
+                    <a href="/dashboard/{{ request.session.user_id }}" class="top-buffer">Dashboard</a>
+                    <a href="/logout" class="to-right">Logout</a>
+                </div>
+                <div class="db-stats">
+                    <h2>Hello {{ request.session.first_name }}! Create a trip!</h2>
+                </div>
+                {% for msg in messages %}
+                    <p class="error-text">{{ msg }}</p>
+                {% endfor %}
+                <label for="dest">Destination:</label>
+                <input type="text" class="form-control" name="dest" value="{{ dest }}">
+                <div class="date-field">
+                    <label for="start">Start Date:</label>
+                    <input type="date" class="form-control" name="start_dt" value="{{ start_dt }}">
+                </div>
+                <div class="date-field">
+                    <label for="end">End Date:</label>
+                    <input type="date" class="form-control" name="end_dt" value="{{ end_dt }}">
+                </div>
+                <label for="plan">Plan:</label>
+                <input type="text" class="form-control" name="plan" value="{{ plan }}">
+                <div class="form-center">
+                    <input type="reset" value="Reset" class="shadow-btn">
+                    <input type="submit" value="Submit" class="shadow-btn">
+                    <a href="/dashboard/{{ request.session.user_id }}" class="shadow-btn">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

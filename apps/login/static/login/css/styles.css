@@ -1,0 +1,41 @@
+
+.details-form p {
+    margin: 10px 5px;
+}
+.error-text {
+    margin: -5px 0px;
+    color: red;
+}
+.message-box {
+    border: 2px solid red;
+    margin: 5px;
+    padding: 5px;
+}
+.form-section {
+    max-width: 40%;
+}
+#left-form {
+    border-right: 1px groove rgb(160, 146, 146);
+}
+.form-center {
+    text-align: center;
+}
+.align-right {
+    text-align: right;
+}
+.shadow-btn {
+    width: 80px;
+    margin: 30px auto;
+    padding: 10px;
+    box-shadow: 5px 5px;
+}
+.bottom-links {
+    margin-top: 70px;
+}
+.side-by-side {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 45%;
+    margin: 2%;
+}
+

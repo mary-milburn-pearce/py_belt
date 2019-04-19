@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'belt/css/bootstrap.css' %}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2 class="side-by-side">Hello {{ this_person.first_name }}!</h2>
+            <a href="/logout" class="top-buffer">Logout</a>
+            <a href="/new_event" class="btn btn-info top-buffer" role="button">Create a new Trip!</a>
+        </div>
+        <h3>Your trips:</h3>
+        <table class="table table-striped dashboard-table">
+            <tr>
+                <th>Destination</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Plan</th>
+                <th>Actions</th>
+            </tr>
+            {% for ev in h_events %}
+            <tr>
+                <td><a href="/event/{{ev.id}}">{{ ev.destination }}</a></td>
+                <td>{{ ev.start_date | date:"M d, Y" }}</td>
+                <td>{{ ev.end_date | date:"M d, Y" }}</td>
+                <td>{{ ev.plan }}</td>
+                <td><a href="/event/{{ev.id}}/destroy">Remove</a> | <a href="/event/{{ev.id}}/edit">Edit</a></td>
+            </tr>
+            {% endfor %}
+            {% for ev in a_events %}
+            <tr>
+                <td><a href="/event/{{ev.id}}">{{ ev.destination }}</a></td>
+                <td>{{ ev.start_date | date:"M d, Y" }}</td>
+                <td>{{ ev.end_date | date:"M d, Y" }}</td>
+                <td>{{ ev.plan }}</td>
+                <td><a href="/event/{{ ev.id }}/unjoin">Cancel</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3>Other people's trips:</h3>
+        <table class="table table-striped dashboard-table">
+                <tr>
+                    <th>Destination</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plan</th>
+                    <th>Actions</th>
+                </tr>
+            {% for ev in o_events %}
+            <tr>
+                <td><a href="/event/{{ev.id}}">{{ ev.destination }}</a></td>
+                <td>{{ ev.start_date | date:"M d, Y" }}</td>
+                <td>{{ ev.end_date | date:"M d, Y" }}</td>
+                <td>{{ ev.plan }}</td>
+                <td><a href="/event/{{ ev.id }}/join">Join</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    <!-- <div class="page-link">
+            <a href="/events">Upcoming Shows</a>
+        </div> -->
+    </div>
+</body>
+</html>

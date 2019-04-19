@@ -1,0 +1,61 @@
+
+.details-form p {
+    margin: 10px 5px;
+}
+.header-bar {
+    background-color: cadetblue;
+    border-bottom: 1px groove gray;
+}
+#left-header {
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+}
+#right-header {
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    right: 20px;
+}
+.top-buffer {
+    margin: 4% 0px 0px 5%;
+}
+.dashboard-table {
+    border: 1px solid black;
+}
+.error-text {
+    margin: -5px 0px;
+    color: red;
+}
+.message-box {
+    border: 2px solid red;
+    margin: 5px;
+    padding: 5px;
+}
+.form-section {
+    max-width: 45%;
+    border: 2px solid gray;
+}
+.form-center {
+    text-align: center;
+    margin-top: 20px;
+}
+.align-right {
+    text-align: right;
+}
+.shadow-btn {
+    width: 80px;
+    margin: 30px auto;
+    padding: 10px;
+    box-shadow: 5px 5px;
+}
+.bottom-links {
+    margin-top: 70px;
+}
+.side-by-side {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 45%;
+    margin: 2% 2% 2% 0%;
+}
+

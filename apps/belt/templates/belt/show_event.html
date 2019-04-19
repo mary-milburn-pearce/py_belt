@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'belt/css/bootstrap.css' %}">
+    <title>Event Details</title>
+</head>
+<body>
+    <div class="container">
+        <div class="align-right">
+            <a href="/dashboard/{{ request.session.user_id }}" class="top-buffer">Dashboard</a>
+            <a href="/logout" class="to-right">Logout</a>
+        </div>
+        <div class="db-stats">
+            <h2>Hello {{ request.session.first_name }}! Read about this trip!</h2>
+        </div>
+        <div class="form-group narrow-form">
+            <h3>{{ event.destination }}</h3>
+            <p>Start Date: {{ event.start_date | date:"m/d/y" }}</p>
+            <p>End Date: {{ event.end_date | date:"m/d/y" }}</p>
+            <p>Created On: {{ event.created_at | date:"m/d/y" }}</p>
+            <p>Last Updated: {{ event.updated_at | date:"m/d/y" }}</p>
+            <p>Plan: {{ event.plan }}</p>
+            <p>Created by: {{ host.first_name }}</p>
+        </div>
+        <div class="form-group narrow-form">
+            <h3>People who've joined the trip:</h3>
+            {% for p in coming %}
+                <p>{{ p.first_name }} {{ p.last_name }}</p>
+            {% endfor %}
+        <!-- <div class="bottom-links">
+            <p><a href="/shows/{{ show.id }}/edit">Edit</a> | <a href="/shows/{{ show.id }}/destroy">Delete</a></p>   
+        </div> -->
+    </div>
+</body>
+</html>
