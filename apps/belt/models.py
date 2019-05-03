@@ -31,7 +31,7 @@ class Event(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     plan = models.CharField(max_length=255)
-    organizer = models.ForeignKey(Person, related_name="hosted_events")
+    organizer = models.ForeignKey(Person, on_delete=models.CASCADE, related_name="hosted_events")
     attendees = models.ManyToManyField(Person, related_name="attending_events")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
